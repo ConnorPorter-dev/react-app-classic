@@ -1,21 +1,19 @@
 import React, { Component } from "react";
-import Counter from "./components/Counter/counter";
-import Header from "./components/Header/header";
-import CardSection from "./components/CardSection/cardSection";
-const data2 = require("./data.json");
-
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Home from "./home";
+import About from "./about";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
   render() {
     return (
-      <div>
-        <Header />
-        <Counter />
-        <CardSection data={data2} />
-      </div>
+      <Router>
+        <Switch>
+          <Route path="/about" component={About} />
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </Router>
     );
   }
 }
